@@ -1,11 +1,11 @@
 # 🕸️ Python Web Scraping Learning Checklist
 
 ## 1. Requests 📡
-- [ ] **Introduction to Requests**
-  - [ ] Installing Requests
-  - [ ] Making HTTP requests (GET, POST, PUT, DELETE)
-  - [ ] Handling responses (status codes, headers)
-  - [ ] Query parameters
+- [X] **Introduction to Requests**
+  - [X] Installing Requests
+  - [X] Making HTTP requests (GET, POST, PUT, DELETE)
+  - [X] Handling responses (status codes, headers)
+  - [X] Query parameters
 - [ ] **Advanced Requests**
   - [ ] Handling cookies
   - [ ] Sessions
