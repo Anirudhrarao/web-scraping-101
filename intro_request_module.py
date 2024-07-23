@@ -51,6 +51,7 @@ new_todo = create_todos(title="Learn Python", url='https://jsonplaceholder.typic
 
 
 def update_todos(todo_id:int, url: str) -> None:
+    "update todo takes two parameters called id and url and return updated content in response"
     full_url = f"{url}/{todo_id}"
     payload = {
     'userId': 1,
@@ -65,4 +66,17 @@ def update_todos(todo_id:int, url: str) -> None:
         return None 
 
 updated_todo = update_todos(1,'https://jsonplaceholder.typicode.com/todos')
-print("PUT /todos:", updated_todo)
+# print("PUT /todos:", updated_todo)
+
+
+def delete_todo(todo_id: int, url: str) -> None:
+    "delete todo takes two parameters called id and url and return empty dict as response"
+    full_url = f"{url}/{todo_id}"
+    response = requests.delete(full_url)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return None 
+
+todo = delete_todo(1,'https://jsonplaceholder.typicode.com/todos')
+print("DELETE /todos:", todo)
