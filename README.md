@@ -9,7 +9,7 @@
 - [X] **Advanced Requests**
   - [X] Handling cookies
   - [X] Sessions
-  - [ ] File uploads
+  - [X] File uploads
   - [ ] Timeout and retries
   - [ ] Error handling
 
