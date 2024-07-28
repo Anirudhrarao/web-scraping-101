@@ -6,9 +6,9 @@
   - [X] Making HTTP requests (GET, POST, PUT, DELETE)
   - [X] Handling responses (status codes, headers)
   - [X] Query parameters
-- [ ] **Advanced Requests**
-  - [ ] Handling cookies
-  - [ ] Sessions
+- [X] **Advanced Requests**
+  - [X] Handling cookies
+  - [X] Sessions
   - [ ] File uploads
   - [ ] Timeout and retries
   - [ ] Error handling
