@@ -14,9 +14,9 @@
   - [X] Error handling
 
 ## 2. BeautifulSoup 🍲
-- [ ] **Introduction to BeautifulSoup**
-  - [ ] Installing BeautifulSoup
-  - [ ] Parsing HTML and XML documents
+- [X] **Introduction to BeautifulSoup**
+  - [X] Installing BeautifulSoup
+  - [X] Parsing HTML and XML documents
 - [ ] **Navigating the Parse Tree**
   - [ ] Finding elements by tag, class, id
   - [ ] Using CSS selectors
