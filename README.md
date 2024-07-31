@@ -10,8 +10,8 @@
   - [X] Handling cookies
   - [X] Sessions
   - [X] File uploads
-  - [ ] Timeout and retries
-  - [ ] Error handling
+  - [X] Timeout and retries
+  - [X] Error handling
 
 ## 2. BeautifulSoup 🍲
 - [ ] **Introduction to BeautifulSoup**
