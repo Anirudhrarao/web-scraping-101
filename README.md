@@ -17,8 +17,8 @@
 - [X] **Introduction to BeautifulSoup**
   - [X] Installing BeautifulSoup
   - [X] Parsing HTML and XML documents
-- [ ] **Navigating the Parse Tree**
-  - [ ] Finding elements by tag, class, id
+- [X] **Navigating the Parse Tree**
+  - [X] Finding elements by tag, class, id
   - [ ] Using CSS selectors
   - [ ] Navigating using `.find()`, `.find_all()`, `.select()`
 - [ ] **Modifying the Parse Tree**
