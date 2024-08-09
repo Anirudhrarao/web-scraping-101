@@ -19,27 +19,27 @@
   - [X] Parsing HTML and XML documents
 - [X] **Navigating the Parse Tree**
   - [X] Finding elements by tag, class, id
-- [X] Functions in bs4
-    # Essential BeautifulSoup Functions
+  - [X] Functions in bs4
+      # Essential BeautifulSoup Functions
 
-| Function                | Purpose                                                                                       |
-|-------------------------|-----------------------------------------------------------------------------------------------|
-| `BeautifulSoup()`       | Creates a BeautifulSoup object, representing the document as a nested data structure.         |
-| `find()`                | Finds the first element that matches the given criteria.                                       |
-| `find_all()`            | Finds all elements that match the given criteria.                                              |
-| `select()`              | Finds all elements that match the CSS selector.                                                |
-| `select_one()`          | Finds the first element that matches the CSS selector.                                         |
-| `get_text()`            | Extracts all the text from an element, stripping out the HTML tags.                            |
-| `attrs`                 | Accesses the attributes of an element.                                                         |
-| `contents`              | Returns a list of an element’s children.                                                       |
-| `children`              | Returns a generator of an element’s children.                                                  |
-| `parent`                | Accesses the parent element.                                                                   |
-| `parents`               | Accesses a list of all parent elements.                                                        |
-| `previous_sibling`      | Accesses the previous sibling of an element.                                                   |
-| `next_sibling`          | Accesses the next sibling of an element.                                                       |
-| `find_parent()`         | Finds the first parent element that matches the given criteria.                                |
-| `find_next_sibling()`   | Finds the next sibling element that matches the given criteria.                                |
-| `find_previous_sibling()` | Finds the previous sibling element that matches the given criteria.                          |
+  | Function                | Purpose                                                                                       |
+  |-------------------------|-----------------------------------------------------------------------------------------------|
+  | `BeautifulSoup()`       | Creates a BeautifulSoup object, representing the document as a nested data structure.         |
+  | `find()`                | Finds the first element that matches the given criteria.                                       |
+  | `find_all()`            | Finds all elements that match the given criteria.                                              |
+  | `select()`              | Finds all elements that match the CSS selector.                                                |
+  | `select_one()`          | Finds the first element that matches the CSS selector.                                         |
+  | `get_text()`            | Extracts all the text from an element, stripping out the HTML tags.                            |
+  | `attrs`                 | Accesses the attributes of an element.                                                         |
+  | `contents`              | Returns a list of an element’s children.                                                       |
+  | `children`              | Returns a generator of an element’s children.                                                  |
+  | `parent`                | Accesses the parent element.                                                                   |
+  | `parents`               | Accesses a list of all parent elements.                                                        |
+  | `previous_sibling`      | Accesses the previous sibling of an element.                                                   |
+  | `next_sibling`          | Accesses the next sibling of an element.                                                       |
+  | `find_parent()`         | Finds the first parent element that matches the given criteria.                                |
+  | `find_next_sibling()`   | Finds the next sibling element that matches the given criteria.                                |
+  | `find_previous_sibling()` | Finds the previous sibling element that matches the given criteria.                          |
 
   - [ ] Using CSS selectors
   - [ ] Navigating using `.find()`, `.find_all()`, `.select()`
