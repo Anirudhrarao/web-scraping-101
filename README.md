@@ -19,7 +19,7 @@
   - [X] Parsing HTML and XML documents
 - [X] **Navigating the Parse Tree**
   - [X] Finding elements by tag, class, id
-  - [] Functions in bs4
+- [X] Functions in bs4
     # Essential BeautifulSoup Functions
 
 | Function                | Purpose                                                                                       |
