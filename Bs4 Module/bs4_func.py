@@ -96,4 +96,58 @@ def get_children(url: str) -> None:
     for child in section_childrens:
         print(child)
 
-get_children(url)
+# get_children(url)
+
+def get_parent(url: str) -> None:
+    """
+    Returns a h2's parent of parent
+    :params url of str type
+    :return None
+    """
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "lxml")
+    h2_parent = soup.find('h2').parent.parent
+    print(h2_parent.name)
+
+# get_parent(url)
+
+def get_parents(url: str) -> None:
+    """
+    Returns a list of all parents of an <h2> tag
+    :params url of str type
+    :return None
+    """
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "lxml")
+    h2_parents = list(soup.find('h2').parent)
+    for parent in h2_parents:
+        print(parent.name)
+
+# get_parents(url)
+
+def prev_sibling(url: str) -> None:
+    """
+    Returns a previous sibling of an item-6 tag
+    :params url of str type
+    :return None
+    """
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "lxml")
+    prev_sib = soup.find(id="item-6").find_previous_sibling()
+    print(prev_sib.text)
+
+# prev_sibling(url)
+
+def next_sibling(url: str) -> None:
+    """
+    Returns a next sibling of an item-3 tag
+    :params url of str type
+    :return None
+    """
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "lxml")
+    next_sib = soup.find(id="item-3").find_next_sibling()
+    print(next_sib.text)
+
+next_sibling(url)
+
