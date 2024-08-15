@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .content > div {
+            flex: 1 1 30%;
+            margin: 10px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        .highlight {
+            background-color: #ffeb3b;
+        }
+        .featured {
+            border: 2px solid #ff5722;
+        }
+        .main-content {
+            flex: 2 1 60%;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .callout {
+            background-color: #2196F3;
+            color: #fff;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .info-box {
+            background-color: #e3f2fd;
+            padding: 10px;
+            border-left: 5px solid #1976D2;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .sidebar {
+            flex: 1 1 20%;
+            background-color: #e0e0e0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to CSS Selector Practice</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <div class="sidebar">
+                <h3>Sidebar Section</h3>
+                <p class="info-box">Quick links</p>
+                <p class="info-box">News</p>
+                <p class="info-box">Updates</p>
+            </div>
+            <div class="main-content">
+                <h2>Main Content Area</h2>
+                <p>This is the main content area where the bulk of information will be displayed.</p>
+                <p class="callout">Important notice: This area is for announcements and updates.</p>
+                <div class="gallery">
+                    <img src="https://via.placeholder.com/150" alt="Sample Image 1">
+                    <img src="https://via.placeholder.com/150" alt="Sample Image 2">
+                    <img src="https://via.placeholder.com/150" alt="Sample Image 3">
+                </div>
+            </div>
+            <div class="featured">
+                <h3>Featured Section</h3>
+                <p>This section highlights featured content.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 CSS Selector Practice. All rights reserved.</p>
+    </footer>
+</body>
+</html>
