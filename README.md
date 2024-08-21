@@ -41,9 +41,9 @@
   | `find_next_sibling()`   | Finds the next sibling element that matches the given criteria.                                |
   | `find_previous_sibling()` | Finds the previous sibling element that matches the given criteria.                          |
 
-  - [ ] Using CSS selectors
-  - [ ] Navigating using `.find()`, `.find_all()`, `.select()`
-- [ ] **Modifying the Parse Tree**
+  - [X] Using CSS selectors
+  - [X] Navigating using `.find()`, `.find_all()`, `.select()`
+- [X] **Modifying the Parse Tree**
   - [ ] Modifying tag attributes
   - [ ] Extracting and changing tag content
   - [ ] Decomposing tags
