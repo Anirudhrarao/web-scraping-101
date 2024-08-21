@@ -48,6 +48,9 @@ def adjacent_sibling_selector(url: str) -> None:
 
 def general_sibling_select(url: str) -> None:
     """
+     Select all sibling elements following the .sidebar.
+     :params url of str type
+     :return None
     """
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "lxml")
@@ -56,3 +59,4 @@ def general_sibling_select(url: str) -> None:
         print(sibling.get_text())
 
 # general_sibling_select(URL)
+
