@@ -44,9 +44,9 @@
   - [X] Using CSS selectors
   - [X] Navigating using `.find()`, `.find_all()`, `.select()`
 - [X] **Modifying the Parse Tree**
-  - [ ] Modifying tag attributes
-  - [ ] Extracting and changing tag content
-  - [ ] Decomposing tags
+  - [X] Modifying tag attributes
+  - [X] Extracting and changing tag content
+  - [X] Decomposing tags
 - [ ] **Advanced BeautifulSoup**
   - [ ] Handling nested structures
   - [ ] Working with encodings
