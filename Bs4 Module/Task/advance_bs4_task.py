@@ -60,4 +60,30 @@ def extract_last_comment_and_modify(url: str) -> None:
     print(f"Updated comment: {updated_comment}")
 
 
-extract_last_comment_and_modify(url)
+# extract_last_comment_and_modify(url)
+
+def handle_missing_data(url: str) -> None:
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "lxml") 
+
+    titles = soup.select(".main-content .article .title")
+    authors = soup.select(".main-content .article .author")
+
+    for i in range(len(soup.select(".main-content .article"))):
+        title = titles[i]  if i < len(titles) else None 
+        author = authors[i] if i < len(authors) else None
+        print(title)
+
+        if title:
+            title_text = title.get_text(strip=True)
+        else:
+            title_text = "Title missing"
+        
+        if author:
+            author_text = author.get_text(strip=True)
+        else:
+            author_text = "Author missing"
+
+        print(f"Title: {title_text}, Author: {author_text}")
+
+# handle_missing_data(url)
