@@ -1,0 +1,40 @@
+{
+    "articles": [
+        {
+            "title": "Article 1 Title",
+            "author": "Author: John Doe"
+        },
+        {
+            "title": "Title missing",
+            "author": "Author: Jane Doe"
+        },
+        {
+            "title": "Article 3 Title",
+            "author": "Author missing"
+        }
+    ],
+    "comments": [
+        {
+            "username": "user123",
+            "comment": "Great article!"
+        },
+        {
+            "username": "user456",
+            "comment": "Thanks for the tips!"
+        },
+        {
+            "username": "user789",
+            "comment": "Very insightful!"
+        }
+    ],
+    "sidebar_links": [
+        "Home",
+        "About",
+        "Contact",
+        "Blog"
+    ],
+    "modified_comment": {
+        "original_comment": "Very insightful!",
+        "updated_comment": "Very insightful! - updated comment"
+    }
+}

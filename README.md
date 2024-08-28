@@ -20,7 +20,7 @@
 - [X] **Navigating the Parse Tree**
   - [X] Finding elements by tag, class, id
   - [X] Functions in bs4
-      # Essential BeautifulSoup Functions
+      #### Essential BeautifulSoup Functions
 
   | Function                | Purpose                                                                                       |
   |-------------------------|-----------------------------------------------------------------------------------------------|

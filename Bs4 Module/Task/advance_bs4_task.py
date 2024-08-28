@@ -1,89 +1,93 @@
+import json 
 import requests
 from bs4 import BeautifulSoup
+from typing import Dict, List
+from dataclasses import dataclass, field
 
-url = "http://127.0.0.1:5500/web-scraping-101/Bs4%20Module/Task/index.html"
+@dataclass
+class WebScraper:
+    url: str 
+    soup: BeautifulSoup = field(init=False)
 
-def extract_titles(url: str) -> None:
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "lxml")
-    titles = soup.select(".main-content .article .title")
-    authors = soup.select(".main-content .article .author")
-    for title, author in zip(titles, authors):
-        title_text = title.get_text(strip=True)
-        author_text = author.get_text(strip=True)
-        print(f"Title: {title_text}, Author: {author_text}")
+    def __post_init__(self):
+        self.soup = self._get_soup()
 
-# extract_titles(url)
-
-def extract_user_comment(url: str) -> None:
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "lxml")
-    users = soup.select(".comments .comment .username")
-    comments = soup.select(".comments .comment .text")
-    for user, comment in zip(users, comments):
-        user_text = user.get_text(strip=True)
-        comment_text = comment.get_text(strip=True)
-        print(f"User Name: {user_text}, Comment: {comment_text}")
-
-# extract_user_comment(url)
-
-
-def extract_sidebar_links(url: str) -> None:
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "lxml")
-    links = soup.select(".sidebar ul li a")
-    for link in links:
-        print(f"Link Name: {link.get_text(strip=True)}")
-
-# extract_sidebar_links(url)
-
-def extract_title_using_css(url: str) -> None:
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "lxml")
-    articles_title = soup.select(".main-content .article .title")
-    for title in articles_title:
-        print(f"Title: {' '.join(title.get_text().split(' ')[:2])}")
+    def _get_soup(self):
+        response = requests.get(self.url)
+        response.raise_for_status()
+        return BeautifulSoup(response.text, "lxml")
     
-# extract_title_using_css(url)
+    def extract_titles_and_authors(self) -> List[Dict[str, str]]:
+        articles_data: List[Dict[str, str]] = []
+        articles = self.soup.select(".main-content .article")
 
+        for article in articles:
+            title_element = article.select_one(".title")
+            author_element = article.select_one(".author")
 
-def extract_last_comment_and_modify(url: str) -> None:
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "lxml")
-    last_comment_element = soup.select(".comments .comment .text")[-1]
+            title_text = title_element.get_text(strip=True) if title_element else "Title missing"
+            author_text = author_element.get_text(strip=True) if author_element else "Author missing"
 
-    original_comment = last_comment_element.get_text(strip=True)
-    print(f"Original comment: {original_comment}")
-
-    last_comment_element.string = f"{original_comment} - updated by developer"
-    updated_comment = last_comment_element.get_text(strip=True)
-    print(f"Updated comment: {updated_comment}")
-
-
-# extract_last_comment_and_modify(url)
-
-def handle_missing_data(url: str) -> None:
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "lxml") 
-
-    titles = soup.select(".main-content .article .title")
-    authors = soup.select(".main-content .article .author")
-
-    for i in range(len(soup.select(".main-content .article"))):
-        title = titles[i]  if i < len(titles) else None 
-        author = authors[i] if i < len(authors) else None
-        print(title)
-
-        if title:
-            title_text = title.get_text(strip=True)
-        else:
-            title_text = "Title missing"
+            articles_data.append({
+                "title": title_text,
+                "author": author_text
+            })
         
-        if author:
-            author_text = author.get_text(strip=True)
-        else:
-            author_text = "Author missing"
+        return articles_data
+    
+    def extract_comments(self) -> List[Dict[str, str]]:
+        comment_data: List[Dict[str, str]] = []
+        comments = self.soup.select(".comments .comment")
 
-        print(f"Title: {title_text}, Author: {author_text}")
+        for comment in comments:
+            user_element = comment.select_one(".username")
+            text_element = comment.select_one(".text")
 
-# handle_missing_data(url)
+            user_text = user_element.get_text(strip=True) if user_element else "Username missing"
+            comment_text = text_element.get_text(strip=True) if text_element else "Comment missing"
+
+            comment_data.append({
+                "username": user_text,
+                "comment": comment_text
+            })
+        
+        return comment_data
+    
+    def extract_sidebar_links(self) -> List[str]:
+        links_data: List[str] = []
+        links = self.soup.select(".sidebar ul li a")
+
+        for link in links:
+            links_data.append(link.get_text(strip=True))
+        
+        return links_data
+    
+    def modify_last_comment(self) -> Dict[str, str]:
+        last_comment_element = self.soup.select(".comments .comment .text")[-1]
+        original_comment = last_comment_element.get_text(strip=True)
+        
+        last_comment_element.string = f"{original_comment} - updated comment"
+        updated_comment = last_comment_element.get_text(strip=True)
+
+        return {
+            "original_comment": original_comment,
+            "updated_comment": updated_comment
+        }
+    
+    def save_to_json(self, data: Dict[str, List[Dict[str, str]]], filename: str) -> None:
+        with open(filename, 'w') as json_file:
+            json.dump(data, json_file, indent=4)
+    
+    def run(self) -> None:
+        data = {
+            "articles": self.extract_titles_and_authors(),
+            "comments": self.extract_comments(),
+            "sidebar_links": self.extract_sidebar_links(),
+            "modified_comment": self.modify_last_comment()
+        }
+        self.save_to_json(data, "scraped_data.json")
+
+if __name__ == "__main__":
+    url = "http://127.0.0.1:5500/web-scraping-101/Bs4%20Module/Task/index.html"
+    scraper = WebScraper(url)
+    scraper.run()
