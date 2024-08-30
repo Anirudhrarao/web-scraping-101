@@ -1,4 +1,5 @@
-import json 
+import streamlit as st
+import json
 import requests
 from bs4 import BeautifulSoup
 from typing import Dict, List
@@ -73,21 +74,43 @@ class WebScraper:
             "original_comment": original_comment,
             "updated_comment": updated_comment
         }
-    
-    def save_to_json(self, data: Dict[str, List[Dict[str, str]]], filename: str) -> None:
-        with open(filename, 'w') as json_file:
-            json.dump(data, json_file, indent=4)
-    
-    def run(self) -> None:
-        data = {
-            "articles": self.extract_titles_and_authors(),
-            "comments": self.extract_comments(),
-            "sidebar_links": self.extract_sidebar_links(),
-            "modified_comment": self.modify_last_comment()
-        }
-        self.save_to_json(data, "scraped_data.json")
 
+def main():
+    st.title("Web Scraper Dashboard")
+
+    url = st.text_input("Enter the URL:", "http://127.0.0.1:5500/web-scraping-101/Bs4%20Module/Task/index.html")
+
+    if st.button("Scrape Data"):
+        scraper = WebScraper(url)
+        
+        with st.spinner("Scraping data..."):
+            articles = scraper.extract_titles_and_authors()
+            comments = scraper.extract_comments()
+            sidebar_links = scraper.extract_sidebar_links()
+            modified_comment = scraper.modify_last_comment()
+            
+            st.subheader("Articles")
+            st.write(articles)
+
+            st.subheader("Comments")
+            st.write(comments)
+
+            st.subheader("Sidebar Links")
+            st.write(sidebar_links)
+
+            st.subheader("Modified Comment")
+            st.write(modified_comment)
+
+            data = {
+                "articles": articles,
+                "comments": comments,
+                "sidebar_links": sidebar_links,
+                "modified_comment": modified_comment
+            }
+            
+            st.subheader("Download JSON")
+            json_data = json.dumps(data, indent=4)
+            st.download_button("Download JSON", json_data, "scraped_data.json", "application/json")
+    
 if __name__ == "__main__":
-    url = "http://127.0.0.1:5500/web-scraping-101/Bs4%20Module/Task/index.html"
-    scraper = WebScraper(url)
-    scraper.run()
+    main()
