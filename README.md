@@ -47,16 +47,15 @@
   - [X] Modifying tag attributes
   - [X] Extracting and changing tag content
   - [X] Decomposing tags
-- [ ] **Advanced BeautifulSoup**
-  - [ ] Handling nested structures
-  - [ ] Working with encodings
-  - [ ] Parsing complex HTML (handling bad HTML)
-  - [ ] Integrating with Requests
+- [X] **Advanced BeautifulSoup**
+  - [X] Handling nested structures
+  - [X] Parsing complex HTML (handling bad HTML)
+  - [X] Integrating with Requests
 
 ## 3. Selenium 🕵️‍♂️
-- [ ] **Introduction to Selenium**
-  - [ ] Installing Selenium
-  - [ ] Setting up WebDriver (Chrome, Firefox, etc.)
+- [X] **Introduction to Selenium**
+  - [X] Installing Selenium
+  - [X] Setting up WebDriver (Chrome, Firefox, etc.)
 - [ ] **Basic Operations**
   - [ ] Opening a web page
   - [ ] Finding elements (by id, name, class, CSS selector, XPath)
